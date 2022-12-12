@@ -1,0 +1,223 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="21225" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="t7D-WV-gH7">
+    <device id="retina6_0" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="21207"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
+        <capability name="UIMenu" message="Requires Xcode 11 or later." minToolsVersion="11.0" requiredIntegratedClassName="UICommandDiff"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--Formulario de Ventas-->
+        <scene sceneID="tne-QT-ifu">
+            <objects>
+                <viewController id="BYZ-38-t0r" customClass="BookSellViewController" customModule="clase8Ejercicio2" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
+                        <rect key="frame" x="0.0" y="0.0" width="390" height="844"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Nombre del Libro" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="j59-zK-wYA">
+                                <rect key="frame" x="58.666666666666657" y="197" width="273" height="34"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Precio" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="L9r-dY-JcL">
+                                <rect key="frame" x="58.666666666666657" y="301" width="273" height="34"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                                <textInputTraits key="textInputTraits" keyboardType="numberPad"/>
+                            </textField>
+                            <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Cantidad" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="YoC-0e-9ov">
+                                <rect key="frame" x="58.666666666666657" y="405" width="273" height="34"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                                <textInputTraits key="textInputTraits" keyboardType="numberPad"/>
+                            </textField>
+                            <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="tSq-Sh-Dhs">
+                                <rect key="frame" x="58.666666666666657" y="509" width="273" height="33"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Medio de Pago" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="KQ4-sO-waM">
+                                        <rect key="frame" x="0.0" y="0.0" width="136.33333333333334" height="33"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <button opaque="NO" contentMode="scaleToFill" showsMenuAsPrimaryAction="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" changesSelectionAsPrimaryAction="YES" translatesAutoresizingMaskIntoConstraints="NO" id="qNi-Qk-ckl">
+                                        <rect key="frame" x="136.33333333333337" y="0.0" width="136.66666666666663" height="33"/>
+                                        <color key="backgroundColor" systemColor="systemGreenColor"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <menu key="menu" id="EJZ-8x-m5z">
+                                            <menuOptions key="menuOptions" displayInline="YES" singleSelection="YES"/>
+                                            <children>
+                                                <command title="Efectivo" id="Dop-QK-qQ1"/>
+                                                <command title="TC" id="78v-M3-DS3"/>
+                                            </children>
+                                        </menu>
+                                        <state key="normal" title="Pago">
+                                            <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        </state>
+                                    </button>
+                                </subviews>
+                                <constraints>
+                                    <constraint firstItem="qNi-Qk-ckl" firstAttribute="width" secondItem="KQ4-sO-waM" secondAttribute="width" id="1b4-K8-4ys"/>
+                                </constraints>
+                            </stackView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="yQS-3G-i0c">
+                                <rect key="frame" x="117" y="612" width="156" height="34.333333333333371"/>
+                                <color key="backgroundColor" systemColor="opaqueSeparatorColor"/>
+                                <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="plain" title="Vender"/>
+                                <connections>
+                                    <action selector="onSellButtonTapped:" destination="BYZ-38-t0r" eventType="touchUpInside" id="Jvy-jO-9rt"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="YoC-0e-9ov" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" id="2RS-gb-oNk">
+                                <variation key="heightClass=compact-widthClass=compact" constant="10"/>
+                            </constraint>
+                            <constraint firstItem="yQS-3G-i0c" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="6eo-Or-evB"/>
+                            <constraint firstItem="L9r-dY-JcL" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="7Fo-Et-0QQ"/>
+                            <constraint firstItem="j59-zK-wYA" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="8VC-bS-GNI"/>
+                            <constraint firstItem="L9r-dY-JcL" firstAttribute="top" secondItem="j59-zK-wYA" secondAttribute="bottom" constant="70" id="9vr-dZ-ag6">
+                                <variation key="heightClass=compact-widthClass=compact" constant="30"/>
+                            </constraint>
+                            <constraint firstItem="yQS-3G-i0c" firstAttribute="top" secondItem="tSq-Sh-Dhs" secondAttribute="bottom" constant="70" id="APH-op-I3f">
+                                <variation key="heightClass=compact-widthClass=compact" constant="30"/>
+                            </constraint>
+                            <constraint firstItem="tSq-Sh-Dhs" firstAttribute="top" secondItem="YoC-0e-9ov" secondAttribute="bottom" constant="70" id="Fp6-M6-uwi">
+                                <variation key="heightClass=compact-widthClass=compact" constant="30"/>
+                            </constraint>
+                            <constraint firstItem="YoC-0e-9ov" firstAttribute="width" secondItem="8bC-Xf-vdC" secondAttribute="width" multiplier="0.7" id="LdJ-bu-Br6"/>
+                            <constraint firstItem="yQS-3G-i0c" firstAttribute="width" secondItem="8bC-Xf-vdC" secondAttribute="width" multiplier="0.4" id="V1k-mv-pOu"/>
+                            <constraint firstItem="j59-zK-wYA" firstAttribute="width" secondItem="L9r-dY-JcL" secondAttribute="width" id="Vaf-vz-3RL"/>
+                            <constraint firstItem="tSq-Sh-Dhs" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="WUN-lf-2CS"/>
+                            <constraint firstItem="L9r-dY-JcL" firstAttribute="width" secondItem="YoC-0e-9ov" secondAttribute="width" id="YnP-GI-Eox"/>
+                            <constraint firstItem="YoC-0e-9ov" firstAttribute="top" secondItem="L9r-dY-JcL" secondAttribute="bottom" constant="70" id="cOn-ZE-93T">
+                                <variation key="heightClass=compact-widthClass=compact" constant="30"/>
+                            </constraint>
+                            <constraint firstItem="tSq-Sh-Dhs" firstAttribute="width" secondItem="YoC-0e-9ov" secondAttribute="width" id="g7k-tA-arC"/>
+                            <constraint firstItem="YoC-0e-9ov" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="vKo-S9-Rza"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" title="Formulario de Ventas" id="3cy-Nq-9Tx"/>
+                    <connections>
+                        <outlet property="bookPriceTextField" destination="L9r-dY-JcL" id="Uma-nU-lhZ"/>
+                        <outlet property="bookQuantityTextField" destination="YoC-0e-9ov" id="8EH-GL-dam"/>
+                        <outlet property="bookTitleTextField" destination="j59-zK-wYA" id="Cuf-fI-60d"/>
+                        <outlet property="payMethodPullDownButton" destination="qNi-Qk-ckl" id="rCz-5C-R7o"/>
+                        <segue destination="s69-eY-3XH" kind="show" identifier="goToSellResumeView" id="RCn-W4-Jsz"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="558" y="-14"/>
+        </scene>
+        <!--Sell Resume View Controller-->
+        <scene sceneID="5q1-g3-Lwj">
+            <objects>
+                <viewController id="s69-eY-3XH" customClass="SellResumeViewController" customModule="clase8Ejercicio2" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="Ygh-gt-MFF">
+                        <rect key="frame" x="0.0" y="0.0" width="390" height="844"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Titulo del Libro" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7bz-QW-2oS">
+                                <rect key="frame" x="39" y="217.66666666666666" width="312" height="26.333333333333343"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="22"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Libro Vendido:" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="DC2-dN-6h7">
+                                <rect key="frame" x="137" y="186" width="116" height="21.666666666666657"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="18"/>
+                                <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Total" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="mGc-hF-c0j">
+                                <rect key="frame" x="39" y="325.66666666666669" width="312" height="26.333333333333314"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="22"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Credito" translatesAutoresizingMaskIntoConstraints="NO" id="AMM-fQ-RGY">
+                                <rect key="frame" x="70" y="412" width="250" height="140"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="140" id="Kan-nG-V0l"/>
+                                    <constraint firstAttribute="width" constant="250" id="PLS-Jj-YDk"/>
+                                </constraints>
+                            </imageView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Valor Total:" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="56c-Eg-baG">
+                                <rect key="frame" x="150.33333333333334" y="294" width="89.333333333333343" height="21.666666666666686"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="18"/>
+                                <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="Ubv-0v-sLV"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="AMM-fQ-RGY" firstAttribute="centerX" secondItem="Ygh-gt-MFF" secondAttribute="centerX" id="4mh-Gh-aa7"/>
+                            <constraint firstItem="7bz-QW-2oS" firstAttribute="top" secondItem="DC2-dN-6h7" secondAttribute="bottom" constant="10" id="DTG-sB-7Nd"/>
+                            <constraint firstItem="56c-Eg-baG" firstAttribute="top" secondItem="7bz-QW-2oS" secondAttribute="bottom" constant="50" id="DcI-li-zVa">
+                                <variation key="heightClass=compact-widthClass=compact" constant="20"/>
+                            </constraint>
+                            <constraint firstItem="7bz-QW-2oS" firstAttribute="centerX" secondItem="Ygh-gt-MFF" secondAttribute="centerX" id="I7a-vd-OCW"/>
+                            <constraint firstItem="mGc-hF-c0j" firstAttribute="centerX" secondItem="Ygh-gt-MFF" secondAttribute="centerX" id="I8X-3f-75H"/>
+                            <constraint firstItem="mGc-hF-c0j" firstAttribute="top" secondItem="56c-Eg-baG" secondAttribute="bottom" constant="10" id="SUE-nh-dtt"/>
+                            <constraint firstItem="mGc-hF-c0j" firstAttribute="width" secondItem="Ygh-gt-MFF" secondAttribute="width" multiplier="0.8" id="TKD-dG-iwb"/>
+                            <constraint firstItem="56c-Eg-baG" firstAttribute="centerX" secondItem="Ygh-gt-MFF" secondAttribute="centerX" id="aax-Sy-8Fh"/>
+                            <constraint firstItem="DC2-dN-6h7" firstAttribute="centerX" secondItem="Ygh-gt-MFF" secondAttribute="centerX" id="o6f-82-rgK"/>
+                            <constraint firstItem="AMM-fQ-RGY" firstAttribute="centerY" secondItem="Ygh-gt-MFF" secondAttribute="centerY" constant="60" id="pNU-YB-ow6">
+                                <variation key="heightClass=compact-widthClass=compact" constant="90"/>
+                            </constraint>
+                            <constraint firstItem="7bz-QW-2oS" firstAttribute="width" secondItem="mGc-hF-c0j" secondAttribute="width" id="xZd-I5-TXJ"/>
+                            <constraint firstItem="AMM-fQ-RGY" firstAttribute="top" secondItem="mGc-hF-c0j" secondAttribute="bottom" constant="60" id="yg9-dU-IVT">
+                                <variation key="heightClass=compact-widthClass=compact" constant="30"/>
+                            </constraint>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" id="2ln-Vs-Uch"/>
+                    <connections>
+                        <outlet property="bookTitleLabel" destination="7bz-QW-2oS" id="xht-zV-9fA"/>
+                        <outlet property="payMethodImageView" destination="AMM-fQ-RGY" id="i3F-Dw-ggB"/>
+                        <outlet property="totalSellLabel" destination="mGc-hF-c0j" id="bOV-3U-yff"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Qdf-vQ-9WL" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1335" y="-14"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="H1v-Xv-m6S">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="t7D-WV-gH7" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="e7O-65-uld">
+                        <rect key="frame" x="0.0" y="47" width="390" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="BYZ-38-t0r" kind="relationship" relationship="rootViewController" id="nWh-De-WiO"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="9DC-gj-d8Y" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-212.30769230769229" y="-13.507109004739336"/>
+        </scene>
+    </scenes>
+    <resources>
+        <image name="Credito" width="1052" height="678"/>
+        <systemColor name="opaqueSeparatorColor">
+            <color red="0.77647058823529413" green="0.77647058823529413" blue="0.78431372549019607" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+        <systemColor name="systemGreenColor">
+            <color red="0.20392156862745098" green="0.7803921568627451" blue="0.34901960784313724" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
+    </resources>
+</document>
