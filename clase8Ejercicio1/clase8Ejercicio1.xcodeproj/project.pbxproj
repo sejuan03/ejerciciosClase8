@@ -15,6 +15,8 @@
 		0492AA6D2944016C0000548E /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0492AA6B2944016C0000548E /* LaunchScreen.storyboard */; };
 		0492AA7529442E140000548E /* UserStruct.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0492AA7429442E140000548E /* UserStruct.swift */; };
 		0492AA7729442E590000548E /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0492AA7629442E590000548E /* HomeViewController.swift */; };
+		0492AAD4294BB1E30000548E /* UserRepositoryImpl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0492AAD3294BB1E30000548E /* UserRepositoryImpl.swift */; };
+		0492AAD6294BB25A0000548E /* UserRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0492AAD5294BB25A0000548E /* UserRepository.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -28,6 +30,8 @@
 		0492AA6E2944016C0000548E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		0492AA7429442E140000548E /* UserStruct.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserStruct.swift; sourceTree = "<group>"; };
 		0492AA7629442E590000548E /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
+		0492AAD3294BB1E30000548E /* UserRepositoryImpl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserRepositoryImpl.swift; sourceTree = "<group>"; };
+		0492AAD5294BB25A0000548E /* UserRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserRepository.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -69,6 +73,8 @@
 				0492AA6E2944016C0000548E /* Info.plist */,
 				0492AA7429442E140000548E /* UserStruct.swift */,
 				0492AA7629442E590000548E /* HomeViewController.swift */,
+				0492AAD3294BB1E30000548E /* UserRepositoryImpl.swift */,
+				0492AAD5294BB25A0000548E /* UserRepository.swift */,
 			);
 			path = clase8Ejercicio1;
 			sourceTree = "<group>";
@@ -146,6 +152,8 @@
 			files = (
 				0492AA7729442E590000548E /* HomeViewController.swift in Sources */,
 				0492AA652944016B0000548E /* LoginViewController.swift in Sources */,
+				0492AAD4294BB1E30000548E /* UserRepositoryImpl.swift in Sources */,
+				0492AAD6294BB25A0000548E /* UserRepository.swift in Sources */,
 				0492AA612944016B0000548E /* AppDelegate.swift in Sources */,
 				0492AA632944016B0000548E /* SceneDelegate.swift in Sources */,
 				0492AA7529442E140000548E /* UserStruct.swift in Sources */,

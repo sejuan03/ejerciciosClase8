@@ -10,7 +10,6 @@ import UIKit
 class HomeViewController: UIViewController {
     
     private struct Constant {
-        static let userDB = [User(name: "Juan", lastName: "Sebastian", email: "hola@test.com", photo: "JuanPhoto"),User(name: "Claudia", lastName: "Isabel", email: "claudia@", photo: "ClaudiaPhoto")]
         static let imageNotFound = "interrogante"
     }
     
@@ -18,6 +17,7 @@ class HomeViewController: UIViewController {
     @IBOutlet weak var userPhotoImageView: UIImageView!
     
     var userEmail: String?
+    private var userRepository = UserRepositoryImpl()
     private var currentUser: User!
     private var fullName = ""
     private var userPhoto = ""
@@ -27,16 +27,10 @@ class HomeViewController: UIViewController {
         guard let userEmail = userEmail else {
             return
         }
-        findUser(userEmail)
+        currentUser = userRepository.findUser(userEmail)
         prepareUserInformation()
         validateUserPhotoExist()
         showUserInformation()
-    }
-    
-    private func findUser(_ email: String) {
-        currentUser = Constant.userDB.first { user in
-            user.email == email
-        }
     }
     
     private func prepareUserInformation() {

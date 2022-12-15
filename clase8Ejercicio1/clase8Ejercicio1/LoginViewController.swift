@@ -24,47 +24,28 @@ class LoginViewController: UIViewController {
     
     private var message = ""
     private var alertError: UIAlertController!
-    private var errorAlertCancelAction: UIAlertAction!
     private var serverNumber = 1
     private var serverError = false
-    private var successAccess = false
+    private var validCredentials = false
     private var email = ""
     private var password = ""
     
     override func viewDidLoad() {
         super.viewDidLoad()
         createErrorAlert()
-        setupAlertActions()
-        addAlertActions()
     }
     
     private func createErrorAlert() {
         alertError = UIAlertController(title: Constant.errorTittle, message: message, preferredStyle: .alert)
-    }
-    
-    private func setupAlertActions() {
-        errorAlertCancelAction = UIAlertAction(title: Constant.alertCancelAction, style: .cancel)
-    }
-    
-    private func addAlertActions() {
+        let errorAlertCancelAction = UIAlertAction(title: Constant.alertCancelAction, style: .cancel)
         alertError.addAction(errorAlertCancelAction)
-    }
-    
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        guard let homeViewController = segue.destination as? HomeViewController else {
-            return
-        }
-        guard let email = emailTextField?.text else {
-            return
-        }
-        homeViewController.userEmail = email
     }
     
     @IBAction func loginButtonPressed(_ sender: Any) {
         updateServer()
         checkServer()
         prepareCredentials()
-        successAccessInstance()
+        validateCredentials()
         processAccessAction()
         processResultMessage()
     }
@@ -82,38 +63,46 @@ class LoginViewController: UIViewController {
         password = passwordTextField.text ?? ""
     }
     
-    private func successAccessInstance() {
-        successAccess = Constant.expectedUser.contains { uEmail,uPass in uEmail == email && uPass == password}
+    private func validateCredentials() {
+        validCredentials = Constant.expectedUser.contains { uEmail,uPass in uEmail == email && uPass == password}
     }
     
     private func processAccessAction() {
-        guard !email.isEmpty && !password.isEmpty else {
-            return message = Constant.emptyFieldsMessage
-        }
-        guard successAccess else {
-            return message = Constant.failureMessage
-        }
-        guard serverError == false else {
-            return message = Constant.serverError
-        }
-        if successAccess {
+        if email.isEmpty && password.isEmpty {
+            message = Constant.emptyFieldsMessage
+        } else if !validCredentials {
+            message = Constant.failureMessage
+        } else if serverError {
+            message = Constant.serverError
+        } else {
             message = Constant.successMessage
         }
     }
     
     private func processResultMessage() {
         switch(message) {
-        case Constant.successMessage: successfullInstance()
-        default: presentErrorAlert()
+        case Constant.successMessage: goToHomeView()
+        default: setupErrorAlertMessage()
+            presentErrorAlert()
         }
     }
     
-    private func successfullInstance() {
+    private func goToHomeView() {
         performSegue(withIdentifier: Constant.segueToHomeView, sender: self)
     }
     
-    private func presentErrorAlert() {
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        guard let homeViewController = segue.destination as? HomeViewController else {
+            return
+        }
+        homeViewController.userEmail = email
+    }
+    
+    private func setupErrorAlertMessage() {
         alertError.message = message
+    }
+    
+    private func presentErrorAlert() {
         present(alertError, animated: true)
     }
 }
