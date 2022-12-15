@@ -17,25 +17,22 @@ class SellResumeViewController: UIViewController {
     @IBOutlet weak var totalSellLabel: UILabel!
     @IBOutlet weak var payMethodImageView: UIImageView!
     
-    
-    var bookTitle: String?
-    var price: Int?
-    var quantity: Int?
-    var payMethod: String?
-    private var book: Book!
-    private var bookSell: Sell!
+    var book: Book?
+    var bookSell: Sell?
+    private var bookTittle : String!
+    private var bookRSell: Sell!
     private var payMethodImage = ""
-    let formatter = NumberFormatter()
-    var sellPriceFormatted: String!
+    private let formatter = NumberFormatter()
+    private var sellPriceFormatted: String!
     
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        guard let bookTitle = bookTitle, let price = price, let quantity = quantity, let payMethod = payMethod else {
+        guard let book = book, let bookSell = bookSell else {
             return
         }
-        book = Book(title: bookTitle)
-        bookSell = Sell(quantity: quantity, price: price, payMethod: payMethod)
+        bookTittle = book.title
+        bookRSell = bookSell
         preparePayMethodImage()
         validatePayMethodImageExist()
         formatTotalSellAsCurrency()
@@ -43,7 +40,7 @@ class SellResumeViewController: UIViewController {
     }
     
     private func preparePayMethodImage() {
-        payMethodImage = bookSell.payMethod
+        payMethodImage = bookSell?.payMethod ?? Constant.imageNotFound
     }
     
     private func validatePayMethodImageExist() {
@@ -57,12 +54,12 @@ class SellResumeViewController: UIViewController {
         formatter.minimumFractionDigits = 0
         formatter.currencyCode = "USD"
         formatter.numberStyle = .currency
-        let decimalString = Decimal(string: bookSell.totalSell())
+        let decimalString = Decimal(string: bookRSell.totalSell())
         sellPriceFormatted = formatter.string(for: decimalString)
     }
     
     private func showSellResume() {
-        bookTitleLabel.text = book.title
+        bookTitleLabel.text = bookTittle
         totalSellLabel.text = sellPriceFormatted
         payMethodImageView.image = UIImage(named: payMethodImage)
     }

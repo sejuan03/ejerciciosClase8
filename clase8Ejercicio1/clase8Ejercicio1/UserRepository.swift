@@ -8,3 +8,4 @@
 protocol UserRepository {
     func findUser(_ email: String) -> User
 }
+

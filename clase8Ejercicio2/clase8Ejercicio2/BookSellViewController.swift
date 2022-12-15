@@ -34,26 +34,18 @@ class BookSellViewController: UIViewController {
     private var bookTitle = ""
     private var priceS = ""
     private var quantityS = ""
-    private var fieldsAreNotEmpty = false
+    private var fieldsAreEmpty = false
     private var valuesAreNumeric = false
     
     override func viewDidLoad() {
         super.viewDidLoad()
         createErrorAlert()
-        setupAlertActions()
-        addAlertActions()
         setIdTypePopUpButton()
     }
     
     private func createErrorAlert() {
         alertError = UIAlertController(title: Constant.errorTittle, message: message, preferredStyle: .alert)
-    }
-    
-    private func setupAlertActions() {
-        errorAlertCancelAction = UIAlertAction(title: Constant.alertCancelAction, style: .cancel)
-    }
-    
-    private func addAlertActions() {
+        let errorAlertCancelAction = UIAlertAction(title: Constant.alertCancelAction, style: .cancel)
         alertError.addAction(errorAlertCancelAction)
     }
     
@@ -98,37 +90,32 @@ class BookSellViewController: UIViewController {
     }
     
     private func validateData() {
-        fieldsAreNotEmpty = !bookTitle.isEmpty && !priceS.isEmpty && !quantityS.isEmpty
+        fieldsAreEmpty = bookTitle.isEmpty || priceS.isEmpty || quantityS.isEmpty
         valuesAreNumeric = Int(priceS) != nil && Int(quantityS) != nil
     }
     
     private func setMessageResult(){
-        guard fieldsAreNotEmpty else {
-            return message = Constant.emptyFieldsMessage
+        if fieldsAreEmpty {
+            message = Constant.emptyFieldsMessage
+        } else if !valuesAreNumeric {
+            message = Constant.wrongPriceQuantityValues
+        } else if serverError {
+            message = Constant.serverError
+        } else {
+            message = Constant.successMessage
         }
-        guard valuesAreNumeric else {
-            return message = Constant.wrongPriceQuantityValues
-        }
-        guard !serverError else {
-            return message = Constant.serverError
-        }
-        message = Constant.successMessage
     }
     
     private func processMessageResult() {
         switch(message) {
-        case Constant.successMessage: performSellAction()
-        default: presentErrorAlert()
+        case Constant.successMessage: goToSellResumeView()
+        default: setupErrorAlertMessage()
+            presentErrorAlert()
         }
     }
     
-    private func performSellAction() {
+    private func goToSellResumeView() {
         performSegue(withIdentifier: Constant.segueToSellResumeView, sender: self)
-    }
-    
-    private func presentErrorAlert() {
-        alertError.message = message
-        present(alertError, animated: true)
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
@@ -138,10 +125,8 @@ class BookSellViewController: UIViewController {
         guard let price = Int(priceS), let quantity = Int(quantityS) else {
             return
         }
-        sellResumeViewController.bookTitle = bookTitle
-        sellResumeViewController.price = price
-        sellResumeViewController.quantity = quantity
-        sellResumeViewController.payMethod = payMethodType
+        sellResumeViewController.book = Book(title: bookTitle)
+        sellResumeViewController.bookSell = Sell(quantity: quantity, price: price, payMethod: payMethodType)
         resetSellFormFields()
     }
     
@@ -150,6 +135,13 @@ class BookSellViewController: UIViewController {
         bookPriceTextField.text = ""
         bookQuantityTextField.text = ""
     }
+
+    private func setupErrorAlertMessage(){
+        alertError.message = message
+    }
     
+    private func presentErrorAlert() {
+        present(alertError, animated: true)
+    }
 }
 
